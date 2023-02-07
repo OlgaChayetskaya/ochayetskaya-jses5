@@ -1,0 +1,65 @@
+{
+  "name": "ochayetskaya-jses5",
+  "version": "1.0.0",
+  "description": "Repo for JSES5 course",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf coverage/*",
+    "test": "npm run clean && jest",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@okd-gitlab.gomel.iba.by:jses5-education/ochayetskaya-jses5.git"
+  },
+  "author": "DH",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.5.1",
+    "babel-loader": "^8.2.3",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
+    "jest-html-reporter": "^3.4.2",
+    "jest-sonar-reporter": "^2.0.0",
+    "live-server": "^1.2.1",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "jest": {
+    "verbose": true,
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "User Test Report"
+        }
+      ]
+    ],
+    "testResultsProcessor": "jest-sonar-reporter",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ]
+  },
+  "jest-html-reporter": {
+    "pageTitle": "User Unit tests",
+    "outputPath": "coverage/test-report/index.html",
+    "includeFailureMsg": true
+  },
+  "jestSonar": {
+    "pageTitle": "Generic Unit tests",
+    "reportPath": "coverage",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  }
+}
