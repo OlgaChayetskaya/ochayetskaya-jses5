@@ -1,5 +1,3 @@
-var s = "";
-for (var i = 0; i < 7; i++) {
-  s += "#";
+for (var s = "#"; s.length <= 7; s += "#") {
   console.log(s);
 }
