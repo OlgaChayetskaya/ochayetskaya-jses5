@@ -13,24 +13,13 @@
 function isEven(number) {
   number < 0 ? (k = -1) : (k = 1);
 
-  if (number === 0) {
-    return true;
-  } else if (number === 1) {
-    return false;
-  } else {
-    return isEven(number - 2 * k);
-  }
+  return number == 0 || number == 1 ? !number : isEven(number - 2 * k);
 }
 
 // or
 
 function isEven1(number) {
-  if (Math.abs(number) === 0) {
-    return true;
-  } else if (Math.abs(number) === 1) {
-    return false;
-  } else {
-    return isEven1(Math.abs(number) - 2 );
-  }
+  return Math.abs(number) == 0 || Math.abs(number) == 1
+    ? !Math.abs(number)
+    : isEven(Math.abs(number) - 2);
 }
-
