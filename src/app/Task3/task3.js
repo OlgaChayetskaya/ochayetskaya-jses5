@@ -10,16 +10,9 @@
 
 // Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a
 // way to fix this?
+
 function isEven(number) {
-  number < 0 ? (k = -1) : (k = 1);
-
-  return number == 0 || number == 1 ? !number : isEven(number - 2 * k);
-}
-
-// or
-
-function isEven1(number) {
-  return Math.abs(number) == 0 || Math.abs(number) == 1
+  return Math.abs(number) < 2
     ? !Math.abs(number)
     : isEven(Math.abs(number) - 2);
 }
