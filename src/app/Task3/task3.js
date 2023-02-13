@@ -12,7 +12,6 @@
 // way to fix this?
 
 function isEven(number) {
-  return Math.abs(number) < 2
-    ? !Math.abs(number)
-    : isEven(Math.abs(number) - 2);
+  var absNumber = Math.abs(number);
+  return absNumber < 2 ? !absNumber : isEven(absNumber - 2);
 }
