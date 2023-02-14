@@ -12,13 +12,7 @@
 // (rather than counting only uppercase “B” characters). Rewrite countBs to make
 // use of this new function.
 function countBs(text) {
-  var sumOfBs = 0;
-  for (var i = 0; i < text.length; i++) {
-    if (text.charAt(i) === "B") {
-      sumOfBs++;
-    }
-  }
-  return sumOfBs;
+  return countChar(text, "B");
 }
 function countChar(text, character) {
   var sumOfEnteredChars = 0;
