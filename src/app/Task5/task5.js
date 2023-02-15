@@ -17,26 +17,21 @@ function myRange(start, end, step) {
   var myArray = [],
     myStep;
 
-  arguments.length === 3 ? (myStep = step) : (myStep = 1);
+  step ? (myStep = step) : (myStep = 1);
 
-  if (step && step < 0) {
-    while (start >= end) {
-      myArray.push(start);
-      start += myStep;
-    }
-    return myArray;
-  }
+  var myStart = myStep > 0 ? Math.min(start, end) : Math.max(start, end);
+  var myEnd = myStep > 0 ? Math.max(start, end) : Math.min(start, end);
+  var direction = myStep > 0 ? 1 : -1;
 
-  while (start <= end) {
-    myArray.push(start);
-    start += myStep;
+  while (direction * myStart <= direction * myEnd) {
+    myArray.push(myStart);
   }
   return myArray;
 }
 
 function mySum(array) {
   var sum = 0;
-  
+
   for (var i = 0; i < array.length; i++) {
     sum += array[i];
   }
