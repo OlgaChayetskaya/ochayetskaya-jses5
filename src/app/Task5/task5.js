@@ -15,9 +15,7 @@
 
 function myRange(start, end, step) {
   var myArray = [],
-    myStep;
-
-  step ? (myStep = step) : (myStep = 1);
+    myStep=step||1;
 
   var myStart = myStep > 0 ? Math.min(start, end) : Math.max(start, end);
   var myEnd = myStep > 0 ? Math.max(start, end) : Math.min(start, end);
@@ -25,6 +23,7 @@ function myRange(start, end, step) {
 
   while (direction * myStart <= direction * myEnd) {
     myArray.push(myStart);
+    myStart += myStep;
   }
   return myArray;
 }
