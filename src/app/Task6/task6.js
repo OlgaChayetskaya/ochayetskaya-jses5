@@ -14,7 +14,7 @@ function reverseArray(array) {
   for (var i = 0; i < array.length; i++) {
     myArray.unshift(array[i]);
   }
-  return array.reverse();
+  return myArray;
 }
 
 function reverseArrayInPlace(array) {
@@ -28,6 +28,7 @@ function reverseArrayInPlace(array) {
     array[i] = array[end - i];
     array[end - i] = temp;
   }
-  return array;
+  console.log(array);
 }
+
 
