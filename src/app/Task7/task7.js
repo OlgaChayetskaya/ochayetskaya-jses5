@@ -8,12 +8,9 @@
 // If you haven’t already, also write a recursive version of nth
 
 function arrayToList(array) {
-  var myList = null,
-    len;
+  var myList = null;
 
-  len = array.length;
-
-  for (len; len > 0; len--) {
+  for (var len = array.length; len > 0; len--) {
     myList = { value: array[len - 1], rest: myList };
   }
 
@@ -21,29 +18,31 @@ function arrayToList(array) {
 }
 
 function listToArray(list) {
-  var myArray = [],
-    i = 0;
+  var myArray = [];
+
   for (var node = list; node; node = node.rest) {
-    myArray[i] = node.value;
-    i++;
+    myArray.push(node.value);
   }
 
   return myArray;
 }
 
 function prepend(element, list) {
-  var myList = list;
-  myList = { value: element, rest: myList };
-  return myList;
+  return { value: element, rest: list };
 }
 
 function nth(number, list) {
+  var i = 0;
   for (var node = list; node; node = node.rest) {
-    if (node.value === number) {
-      return node;
-    } 
+    if (i === number) {
+      return node.value;
+    }
+    i++;
   }
   return undefined;
 }
 
+function nthNew(number, list) {
+  return  number === 0 ? list.value : (list.rest ? nthNew(number - 1, list.rest):undefined)
+}
 
