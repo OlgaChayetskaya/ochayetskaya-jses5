@@ -16,24 +16,19 @@ function isObject(arg) {
 function deepEqual(arg1, arg2) {
   if (isObject(arg1) && isObject(arg2)) {
     if (Object.keys(arg1).length !== Object.keys(arg2).length) {
-      console.log("different length");
       return false;
-    } else {
-      for (var x in arg1) {
-        if (!(x in arg2)) {
-          console.log("different properties");
-          return false;
-        }
-      }
-      for (var x in arg1) {
-        if (!deepEqual(arg1[x], arg2[x])) {
-          console.log("different value of the property");
-          return false;
-        }
-      }
-      console.log("equal objects");
-      return true;
     }
+    for (var x in arg1) {
+      if (!arg2.hasOwnProperty(x)) {
+        return false;
+      }
+      if (!deepEqual(arg1[x], arg2[x])) {
+        return false;
+      }
+    }
+
+    return true;
   }
+
   return arg1 === arg2;
 }
