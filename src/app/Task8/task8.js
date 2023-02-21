@@ -19,10 +19,7 @@ function deepEqual(arg1, arg2) {
       return false;
     }
     for (var x in arg1) {
-      if (!arg2.hasOwnProperty(x)) {
-        return false;
-      }
-      if (!deepEqual(arg1[x], arg2[x])) {
+      if (!arg2.hasOwnProperty(x) || !deepEqual(arg1[x], arg2[x])) {
         return false;
       }
     }
