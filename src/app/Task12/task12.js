@@ -10,21 +10,13 @@
 // that they take the array as their first argument rather than being a method.
 
 function myEvery(array, func) {
-  return array.filter(function (item) {
-    return !func(item);
-  }).length === 0
-    ? true
-    : false;
+  return array.filter(func).length === array.length;
 }
 function mySome(array, func) {
-  return array.filter(function (item) {
-    return !func(item);
-  }).length !== array.length
-    ? true
-    : false;
+  return array.filter(func).length !== 0;
 }
 function moreThenTen(a) {
   return a > 10;
 }
-//console.log(myEvery([100, 30, 10000, 20, 5], moreThenTen));
-//console.log(mySome([0, 100, 9, 20, 5], moreThenTen));
+//console.log(myEvery([100, 3, 10000, 20, 50], moreThenTen));
+//console.log(mySome([100, 11, 90, 20, 50], moreThenTen));
